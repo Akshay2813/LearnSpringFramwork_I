@@ -17,6 +17,7 @@ public class App02HelloWorldJava {
 		//we are passing bean methodName
 		System.out.println("Name Bean or object =  " + context.getBean("name"));
 		
+		
 		System.out.println("Age Bean or object = " + context.getBean("age"));
 		
 		System.out.println("Person Bean or object = " + context.getBean("person")); 
