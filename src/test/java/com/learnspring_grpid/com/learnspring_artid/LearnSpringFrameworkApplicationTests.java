@@ -8,6 +8,7 @@ class LearnSpringFrameworkApplicationTests {
 
 	@Test
 	void contextLoads() {
+		
 	}
 
 }
