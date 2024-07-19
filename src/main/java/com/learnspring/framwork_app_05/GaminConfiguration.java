@@ -25,4 +25,8 @@ public class GaminConfiguration {
 	{
 		return new GameRunner(game);
 	}
+	//Here we are creating bean manually here and spring is only managing object 
+	// what if Spring creating Object for us
+	//Refer package com.learnspring.framwork_app_06;
+
 }
