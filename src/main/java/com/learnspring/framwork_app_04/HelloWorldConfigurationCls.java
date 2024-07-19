@@ -1,7 +1,9 @@
 package com.learnspring.framwork_app_04;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 //class Person
 //{
@@ -28,7 +30,7 @@ import org.springframework.context.annotation.Configuration;
 //}
 
 
-record Person(String name,int age) {};
+record Person(String name,int age, Address address) {};
 
 record Address(String firstLine, String city) {};
 
@@ -55,7 +57,7 @@ public class HelloWorldConfigurationCls {
 	@Bean
 	public Person person()
 	{
-		return new Person("Amruta",27);
+		return new Person("Amruta",27, new Address("Jain Galli", "Shevgaon"));
 	}
 	
 //	@Bean
@@ -72,6 +74,8 @@ public class HelloWorldConfigurationCls {
 		return new Address("Marwad Galli","Pune");
 	}
 	
+	
+	
 	// all above bean we created are Independent to each other
 	// there  is no releation between them. 
 	// what if we have create new bean but we have to use existing bean which have releation betweeen them 
@@ -81,13 +85,45 @@ public class HelloWorldConfigurationCls {
 	@Bean
 	public Person person2MethodCall()
 	{
-		return new Person(name(), age());
+		return new Person(name(), age(), address());
 	}
 	
 	//way 2 Parameter
-	@Bean Person person3Paramter(String name, int age)  //name age are above bean
+	@Bean 
+	Person person3Paramter(String name, int age, Address address)  //name age are above bean
 	{
-		return new Person(name, age);
+		return new Person(name, age, address );
+	}
+	
+	
+	//what happend suppose we have multiple matching bean how we give priority
+	
+	//way 1 : use @Primary
+	@Bean
+	@Primary
+	public Address address1()
+	{
+		return new Address("Wadgaon Sheri","Pune");
+	}
+	
+	@Bean
+	public Address address2()
+	{
+		return new Address("Wakad","Pune");
+	}
+	
+	//way 2: use @Qualifier while autowiring bean into another bean
+	@Bean
+	@Qualifier("address3qualifier")
+	public Address address3()
+	{
+		return new Address("Grant Road","Mumbai");
+	}
+	
+	@Bean 
+	Person person3Qualifier(String name, int age, @Qualifier("address3qualifier") Address address)  //name age are above bean
+	{
+		return new Person(name, age, address );
 	}
 	
 	
