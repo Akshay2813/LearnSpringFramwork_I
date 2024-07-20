@@ -1,10 +1,11 @@
-package com.learnspring.framwork_app_07.game_07;
+package com.learnspring.framwork_app_09.game_09;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 @Component
 public class GameRunner {
 	GamingConsoleInterfce game;
-	public GameRunner(GamingConsoleInterfce game)  
+	public GameRunner(@Qualifier("SuperContraGameQualifer") GamingConsoleInterfce game)  
 	{
 		this.game=game;
 	}

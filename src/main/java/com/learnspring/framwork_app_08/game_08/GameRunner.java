@@ -1,4 +1,4 @@
-package com.learnspring.framwork_app_07.game_07;
+package com.learnspring.framwork_app_08.game_08;
 
 import org.springframework.stereotype.Component;
 @Component
