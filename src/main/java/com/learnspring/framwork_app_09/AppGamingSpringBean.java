@@ -5,7 +5,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import com.learnspring.framwork_app_09.game_09.GameRunner;
-import com.learnspring.framwork_app_09.game_09.GamingConsoleInterfce;
 
 @Configuration
 @ComponentScan("com.learnspring.framwork_app_09.game_09")
