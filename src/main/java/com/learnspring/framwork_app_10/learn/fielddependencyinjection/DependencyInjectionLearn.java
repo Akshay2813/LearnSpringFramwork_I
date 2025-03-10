@@ -22,18 +22,24 @@ class BuisnesClass{
 	Dependency2 dependency2; //here are  autowired  so we get object this is Field Injection
 	
 	
-	public String toString()
-	{
-		return "Using Dependency " + dependency1 + " and " + dependency2;
-		//Using Dependency com.learnspring.framwork_app_10.learn.setterbasedependencyinjection.Dependency1@bae7dc0 and com.learnspring.framwork_app_10.learn.setterbasedependencyinjection.Dependency2@209da20d
-
-	}
+//	public String toString()
+//	{
+//		return "Using Dependency " + dependency1 + " and " + dependency2;
+//		//Using Dependency com.learnspring.framwork_app_10.learn.setterbasedependencyinjection.Dependency1@bae7dc0 and com.learnspring.framwork_app_10.learn.setterbasedependencyinjection.Dependency2@209da20d
+//
+//	}
 	
 }
 
 
 @Component
-class Dependency1 {}
+class Dependency1 {
+	
+	Dependency1()
+	{
+		System.out.print("Dependency 1 called");
+	}
+}
 
 
 @Component
@@ -58,12 +64,8 @@ public class DependencyInjectionLearn {
 			
 //			Arrays.stream(context.getBeanDefinitionNames()).forEach(System.out::println);
 			
-			System.out.println(context.getBean(BuisnesClass.class));
-			
-			
+//			System.out.println(context.getBean(BuisnesClass.class));
 
-			
-		
 		}
 		
 		
